@@ -7,7 +7,8 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Extending Yii to meet business level readyness',
+	'name'=>'Git Deployer',
+    'runtimePath'=>'../logs',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -49,7 +50,7 @@ return array(
 
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=yiiExt',
+			'connectionString' => 'mysql:host=localhost;dbname=deployer',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
@@ -64,11 +65,10 @@ return array(
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
-//				array(
-//					'class'=>'CFileLogRoute',
-//					'levels'=>'error, warning',
-//				),
-				// uncomment the following to show log messages on web pages
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'error, warning',
+				),
 				array(
 					'class'=>'CWebLogRoute',
 				),
@@ -76,8 +76,6 @@ return array(
 		),
 	),
 
-	// application-level parameters that can be accessed
-	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',

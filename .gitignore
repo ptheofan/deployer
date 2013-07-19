@@ -1,3 +1,4 @@
 .idea
 logs
 yii
+application/config/local.php
