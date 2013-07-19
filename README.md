@@ -1,4 +1,4 @@
-yii-ext
-=======
+deployer
+========
 
-extending the yii framework for complex and complete business solutions
+php-git deployer built on Yii
