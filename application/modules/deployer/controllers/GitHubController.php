@@ -7,7 +7,17 @@
 
 class GitHubController extends CController {
     public function actionPayload() {
-        $payload = $this->getParam('payload');
-        CVarDumper::dump($payload,10,true);die;
+        $payload = Yii::app()->request->getParam('payload');
+        if (!$payload) {
+            // log error - missing payload parameter
+        }
+
+        $payload = json_decode($payload);
+        if ($payload === null) {
+            // log error - cannot json decode the payload
+        }
+
+        $githubPayload = new GithubPayload();
+
     }
 }
